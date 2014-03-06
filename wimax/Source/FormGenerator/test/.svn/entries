@@ -1,37 +1,0 @@
-9
-
-dir
-125
-svn+ssh://tux.cs.drexel.edu/home/hvd24/wimax/Source/FormGenerator/test
-svn+ssh://tux.cs.drexel.edu/home/hvd24/wimax
-
-
-
-2010-05-12T03:43:44.984583Z
-123
-hvd24
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-05691419-2ad5-4041-b5fa-37086c4aaa83
-
-NGForms.FormGenerator.Core.Test
-dir
-
-testdata
-dir
-
-NGForms.FormGenerator.UI.Test
-dir
-
