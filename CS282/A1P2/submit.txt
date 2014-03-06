@@ -1,0 +1,17 @@
+DHRYSTONE 2.1 BENCHMARK REPORTING FORM
+MANUFACTURER:
+MODEL:
+PROCESSOR:
+CLOCK RATE:
+OS:
+OS VERSION:
+COMPILER:
+COMPILER VERSION:
+COMPILER OPTIONS:
+NOREG: Leave this blank.
+REG:   Leave this blank.
+NOTES:
+DATE:
+SUBMITTER:
+CODESIZE (in bytes):
+MAILTO: Do not mail this -- submit it with your homework as a separate file.

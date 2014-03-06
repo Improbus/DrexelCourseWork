@@ -1,0 +1,61 @@
+README
+
+Daniel A DeCamillo
+9-1-08
+CS360
+Professor Schmidt
+Assignment 4
+
+~1~
+prop-calc.scm
+
+THis function seems to be working fine by itself, I think there may be some bugs in the 
+driver loop but alone the eval function reports the correct answer always.
+
+1 ]=> (load "prop-calc.scm")
+
+;Loading "prop-calc.scm" -- done
+;Value: metacircular-evaluator-loaded
+
+1 ]=> (define the-global-environment (setup-environment))
+
+;Value: the-global-environment
+
+1 ]=> (driver-loop)
+
+
+;;; B-Eval input:
+(not p) (((p #t)))
+
+;;; B-Eval value:
+#f
+
+
+2 error>  (load "prop-calc.scm")
+
+;Loading "prop-calc.scm" -- done
+;Value: metacircular-evaluator-loaded
+
+2 error> (eval '(not (and p q) (implies p q)) '(((p #f) (q #t))))
+
+;Value: #f
+
+2 error>
+
+
+~2~
+
+The taut-test function must be run with the following syntax.
+
+(taut-test exp (gen-table (count-var exp)))
+
+Example:
+
+(taut-test '(or P (not P)) (gen-table (count-var '(or P (not P)))))
+
+Other than this the tau-test is working to my knowledge.  For some reason i couldn't consolidate
+the environment creation into a function so it needs to be called like shown above.
+
+~3~
+
+See file PART3

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+	Dan DeCamillo
+	12-1-07
+	Ant
+-->
+
+<project default='test' basedir='.'>
+	<target name="run" depends='compile'>
+    <java classname='gInt'/>
+		<!--<java classname='gIntTest'/>-->
+  </target>
+
+	<target name="compile" depends='gInt'/>
+
+  <target name="gInt">
+    <javac srcdir='./' includes='gInt.java'/>
+		<!-- Not sure <javac srcdir='./'/> -->
+  </target>
+
+  <target name="gIntTest">
+    <javac srcdir='./' includes='gIntTest.java'/>
+  </target>
+
+	<target name='test' depends='compile,gIntTest'>
+		<junit>
+			<classpath>
+					<!-- get your current classpath -->
+				<pathelement path='${CLASSPATH}'/>
+					<!-- add location of junit.jar -->
+				<pathelement location='/usr/share/java/junit.jar'/>
+				<pathelement location='.'/>
+			</classpath>
+
+			<formatter type='plain'/>
+			<test name='gIntTest'/>
+		</junit>
+	</target>
+
+  <target name="clean">
+    <delete>
+			<fileset dir="./">
+				<include name='*.class'/>
+				<include name='TEST*.txt'/>
+			</fileset>
+		</delete>
+  </target>
+</project>

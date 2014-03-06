@@ -1,0 +1,17 @@
+Dan DeCamillo
+11-26-07
+Assignment 3
+
+The Java Calculator assignment was difficult for me having little previous
+experience in Java so I consulted a few sources to help with the algorithms.
+The sources were as follows:
+
+http://scriptasylum.com/tutorials/infix_postfix/algorithms/infix-postfix/index.htm
+http://scriptasylum.com/tutorials/infix_postfix/algorithms/postfix-evaluation/index.htm
+http://www.java2s.com/Code/Java/Collections-Data-Structure/Convertsinfixarithmeticexpressionstopostfix.htm
+
+I tried my best using these sources and my knowledge from class to finish
+the assignment.  I am aware that the program does not parse entirely
+correctly but I believe I am close.  I also appologize for the lateness of
+the assignment, I had some computer trouble last night and was unable to
+submit it on time. 

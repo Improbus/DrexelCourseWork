@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Setting \$thisVar to 'mouse'"
+thisVar=mouse

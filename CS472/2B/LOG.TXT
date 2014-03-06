@@ -1,0 +1,30 @@
+:quack.cs.drexel.edu NOTICE Auth :*** Found your hostname (tux64-04.cs.drexel.edu) -- cached
+:quack.cs.drexel.edu 001 blah :Welcome to the Drexel IRC Network blah!blah@tux64-04.cs.drexel.edu
+:quack.cs.drexel.edu 003 blah :This server was created 14:26:10 Sep 18 2009
+:quack.cs.drexel.edu 005 blah WALLCHOPS WALLVOICES MODES=20 CHANTYPES=# PREFIX=(ohv)@%+ MAP MAXCHANNELS=20 MAXBANS=60 VBANLIST NICKLEN=32 CASEMAPPING=rfc1459 STATUSMSG=@%+ CHARSET=ascii :are supported by this server
+:quack.cs.drexel.edu 042 blah 250AAAN6K :your unique ID
+:quack.cs.drexel.edu 372 blah :-  
+:quack.cs.drexel.edu 372 blah :- |_   _|                      |_   _| |  __ \  / ____|    | |
+:quack.cs.drexel.edu 372 blah :-   | |   | '_ \  / __| | '_ \   | |   |  _  / | |      / _` |
+:quack.cs.drexel.edu 372 blah :- |_____| |_| |_| |___/ | .__/ |_____| |_|  \_\ \_____| \__,_|
+:quack.cs.drexel.edu 372 blah :-    |__________________|_|_______________________________|
+:quack.cs.drexel.edu 372 blah :-                         Putting the ricer in IRCer since 2007
+:quack.cs.drexel.edu 372 blah :-        //\ 
+:quack.cs.drexel.edu 372 blah :-         \  \_    If you see this, I am probably new.
+:quack.cs.drexel.edu 372 blah :-           |\ `. `. 
+:quack.cs.drexel.edu 372 blah :-            \ \   `.  `-._             __..--' ,-';/
+:quack.cs.drexel.edu 372 blah :-              `. `.    `-._        __..--'    ,' /
+:quack.cs.drexel.edu 372 blah :-                  `-_ `-.___        __,--'   ,'
+:quack.cs.drexel.edu 372 blah :-                          `--..____..--'
+:quack.cs.drexel.edu 372 blah :-         -- To change, see inspircd.motd.example --
+:quack.cs.drexel.edu 372 blah :-       /     * Web: http://www.inspircd.org         \
+:quack.cs.drexel.edu 372 blah :-       |     * IRC: irc.inspircd.org #inspircd      |
+:quack.cs.drexel.edu 372 blah :-       |     * Bugs: http://inspircd.org/bugtrack/  |
+:quack.cs.drexel.edu 372 blah :-       | We hope you like this software. Please do  |
+:quack.cs.drexel.edu 372 blah :-       | your configuration, though, so you love it.|
+:quack.cs.drexel.edu 372 blah :-       |                                            |
+:quack.cs.drexel.edu 372 blah :-        -------------------------------------------
+:quack.cs.drexel.edu 372 blah :-  
+:quack.cs.drexel.edu 251 blah :There are 2 users and 0 invisible on 1 server
+:quack.cs.drexel.edu 255 blah :I have 2 clients and 0 servers
+null

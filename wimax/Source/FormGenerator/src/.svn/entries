@@ -1,0 +1,43 @@
+9
+
+dir
+125
+svn+ssh://tux.cs.drexel.edu/home/hvd24/wimax/Source/FormGenerator/src
+svn+ssh://tux.cs.drexel.edu/home/hvd24/wimax
+
+
+
+2010-05-12T03:56:13.354662Z
+124
+hvd24
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+05691419-2ad5-4041-b5fa-37086c4aaa83
+
+NGForms.FormGenerator.UI
+dir
+
+NGForms.Server
+dir
+
+NGForms.Core
+dir
+
+NGForms.FormGenerator.Infrastructure
+dir
+
+NGForms.FormGenerator.WinForms
+dir
+

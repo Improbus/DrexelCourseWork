@@ -1,0 +1,51 @@
+Daniel A DeCamillo
+7-26-08
+Assignment 2
+CS360
+
+Grammars:
+
+I used the following grammar for both parsers.
+
+command -> closure
+closure -> term
+term -> concat
+concat -> union
+union -> letter
+
+Which is very similar to this example given in class
+
+%{
+/*  yacc parser to recognize the regular language (a|b)*abb  */
+#include <string.h>
+%}
+
+%%
+
+
+S0: 'a' S1    { printf("S0 -> aS1\n"); } 
+  | 'b' S0    { printf("S0 -> bS0\n"); } 
+  ;
+
+S1: 'a' S1    { printf("S1 -> aS1\n"); } 
+  | 'b' S2    { printf("S1 -> bS2\n"); } 
+  ;
+
+S2: 'a' S1    { printf("S2 -> aS1\n"); } 
+  | 'b' S3    { printf("S2 -> bS3\n"); }
+  ;
+
+S3: 'a' S1    { printf("S3 -> aS1\n"); }
+  | 'b' S0    { printf("S3 -> bS0\n"); }
+  |           { printf("S3 -> epsilon\n"); }
+  ;
+%%
+ but instead of yacc PLY was used.
+
+As goes for the two programs.  I believe I followed all instructions and
+they are working correctly to my knowledge.  I have included a test file for
+each.  I have adheared to good style and the instructions and if there is
+any problem with the assignment please let me know.  
+
+The only problem I had I could not get the byHand parser to read multiple
+lines of input.

@@ -1,0 +1,30 @@
+Dan DeCamillo
+Lab 10 Written exercises
+12-5-07
+
+Q1:
+
+Number of Words	   Time in Seconds 	                   T(n) / f(n)		
+		                                   f(n) = n	       f(n) = n^3	         f(n) = n^2
+     10000	           0.008	        0.0000008	          8E-15	              8E-11
+     20000	           0.02	          0.000001 	          2.5E-15	            5E-11
+     30000	           0.028	        9.33333E-07	        1.03704E-15	      3.11111E-11
+     40000	           0.036	        0.0000009	          5.625E-16	         2.25E-11
+     50000	           0.04	          0.0000008	          3.2E-16	            1.6E-11
+     60000	           0.06	          0.000001	          2.77778E-16	       1.66667E-11
+
+The n^2 terms were the closest in results,therefore I took the average of the
+n^2 values which is 3.60463E-11 and multiplied by n^2.
+
+Q2:
+Number of Words	  Number of Calls	                      T(n) / f(n)		
+		                                      f(n) = n 	     f(n) = n^3	      f(n) = n^2
+    10000	             99604	             9.9604	       9.9604E-08	      0.00099604
+    20000	             196932	             9.8466	       2.46165E-08	    0.00049233
+    30000	             288571	             9.619033333   1.06878E-08	    0.000320634
+    40000	             496780	             12.4195	     7.76219E-09	    0.000310488
+    50000	             506165	             10.1233	     4.04932E-09	    0.000202466
+    60000	             637103	             10.61838333   2.94955E-09	    0.000176973
+
+The n^2 terms are the mose precise and the average of these terms is
+0.000416489.

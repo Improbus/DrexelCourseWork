@@ -1,0 +1,10 @@
+<h2>AWK</h2>
+
+<p>(Almost done).  For some practise w/AWK, and putting your various skills
+together, please see the <a target='anagram' href=
+'http://www.cs.drexel.edu/~kschmidt/CS265/Labs/Anagram/anagram.txt'>
+Anagram lab</a></p>
+
+<p><font color="#990066"><b>Q19</b>: What are the top 8 largest equivalence
+(anagram) classes in /usr/share/dict/words?</font></p>
+

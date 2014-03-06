@@ -1,0 +1,38 @@
+Dan DeCamillo
+Lab 9 Written Exercises
+11-28-07
+
+Q1:
+	When bug3 ran an error was produced and stated Segmentation fault (core
+	dumped).  It also created an executable file named bug3.
+
+Q2:
+	The function that the program bombed on was as follows:
+		#0  0x00002abe8a7a6090 in strcmp ()
+
+Q3:
+
+	a. For bug1.c one the second arugument of scanf needs to be passed by
+		 reference.
+
+	b. For bug2.c the formatting for the output stream was incorrect switching
+		 the float and decimal.
+
+	c. For bug3.c one of the while loops was itterating before the values were
+		 being added to the array. 
+
+	d. For avg.c the scanf function's second argument is not passed by
+		 reference. 
+
+	e. In quicksortBug.c there are a pair of braces missing to separate the
+		 for loop and also last is iterated in the wrong direction. 
+
+Q4: 
+	The compiler cannot catch this because the syntax isn't incorrect its just
+	the logic is incorrect therefore producing an infinite for loop which is not
+	a recognizable error by the compiler.  One can see this in the stack because
+	the same value appears in the stack over and over again.
+
+Q5:
+	An error will be produced because the string comparison function cannont
+	differentiate the difference in integer values.

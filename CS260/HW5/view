@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat prob1.py
+
+cat times.txt

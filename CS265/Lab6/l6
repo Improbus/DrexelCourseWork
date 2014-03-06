@@ -1,0 +1,132 @@
+Dan DeCamillo 
+10-31-07
+Lab 6 Written Assignments
+
+Q1:
+
+The function add() allows a word to be added to the suffix list and updates
+the prefix of the word where addSuffix adds to the state and the suffix is
+unchangable later.
+
+Q2:
+
+Lookup searches for prefixes and creates one if requested.  Lookup returns a
+pointer if present or if it was created and returns NULL otherwise.
+
+Lookup is called by add()
+
+Q3:
+
+table -> pref[0] -> "It's"
+				 pref[1] -> "a"
+				 suffix  -> word -> "new"
+				            next -> word -> "dawn"
+														next -> 
+
+
+	a. 1
+	b. 1
+	c. 2
+	d. 3
+
+Q4:
+
+By having the suffixes in a linked list within the hash table it is easy to
+perform operations on the linked list.  Also with the references referring
+to difffernt words on different levels of the hash table one can more easily
+build random text by rearranging the pointers to the words rather than just
+arranging the words themself.
+
+Q5:
+
+The memory used to store the information within the hash table is not free'd
+up after being used and therefore could cause a memory leak or just cause
+over-utilization of memory that could be given back to the system.
+
+Q6:
+
+void freestate(State *table)
+{
+	
+	State *sp;
+	
+	for(table[h]=sp; sp!=NULL; sp = sp->next)
+	{
+		free(sp->suf);
+		free(sp->next);
+		
+		for(int i=0; i < NPREF; i++)
+		{
+			free(sp->pref[i]);
+		}
+	}
+
+	return sp;
+}
+
+Q7:
+
+The function works properly by traversing the table taken in as an argument
+using the free function to clear all of the pointers therefore freeing the
+memory.  Then is a nested for loop that takes care of all the prefixes.  The
+only difficulties that I had was realizing that you have to clear all
+pointers not just the main pointer to the list because the memory still
+stays allocated even if you clear the main pointer.
+
+Q8:
+
+To make sure each string was only cleared once you could run a sanity check
+to see the values of all the pointers and make sure that they all are
+returned as NULL therefore making them all cleared.
+
+Q9:
+
+Prefixes are stored in a deque. Vectors are not used because they do not
+support random insertion and removal.
+
+Q10:
+
+A map replaces the hash table.
+
+Q11:
+
+The suffixes are stored in a vector then placed into the map.
+
+Q12:
+
+The C++ implementation uses less code and has dynamis memory capabilities.
+Also with the use of the deque we allow for constant time insertion and
+removal.
+
+Q13:
+
+There are no real drawbacks other than not being able to use the memory
+allocation functions such as free() and the malloc() found in the C library.
+
+Q14:
+
+The prefixes are stored in a dictionary as keys by reading the input using
+the split function to separate the words and then inserting them into the
+dictionary.
+
+Q15:
+
+In python the way to store an associative array with keys and satellite data
+is by using a dictionary.
+
+Q16:
+
+The satellite data is also stored within the dictionary. As the functioin
+build traverses the keys and input data the satellite data is also appended
+to the dictionary at the same time as the keys.
+
+Q17:
+
+The advantage of the python implementation over the C++ one is that within
+python the entire dictionary can be built in constant time all at once. This
+saves processing time as well as makes the code more compact and managable.
+
+Q18:
+
+Some of the drawbacks of using the python code is that the memory management
+pf the C and C++ is lost but with the python program less memory is used.

@@ -1,0 +1,9 @@
+Dan DeCamillo
+11-5-07
+Assignment 2
+
+This program takes a webpage and parses the information into 2 dictionaries.
+From these two dictionaries one is able to search for flights via Flight
+Company or by flight number.  There are 2 menu functions that control the
+user interface and an option is present to quit the program. Though not very
+visually appealing the program fulfills its purpose.

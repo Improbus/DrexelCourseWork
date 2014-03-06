@@ -1,0 +1,66 @@
+Dan DeCamillo
+lab1
+9-26-07
+
+Q1.  The shell invokes .bash_profile when the shell is logged into. 
+     When bash is not the interactive shell .bashrc is invoked.
+
+Q2.  See File vi_lab.
+
+Q3. One will see the files in the current directory as well as the
+    permissions, the owner, the size, and the date modified.
+
+Q4. The command chmod 644 adds read and write permissions for the
+    user and reading priveledges for the group and public.
+
+Q5. The command chmod 755 adds read, write, and execute permissions 
+    for the user and reading and executing priveledges for the 
+    group and public.
+
+Q6. Yes the permissions state I can read funny.
+
+
+Q7. Yes the permissions state I can read hello.bash.
+
+Q8. No I could not successfully execute hello.bash.
+
+Q9. Two ways of giving myself executable access would be to 
+    chmod 700 or 755 the file.
+
+Q10. An error occurs because write permissions are not set.
+
+Q11. ls * returned all of the files in the directory
+     ls a* returned all files beginning with the letter a.
+     ls *m* returns any file containing an m in the middle.
+     ls anno? returns the file annoy
+     ls annoy? returns an error.
+
+Q12. The file is named only a because the space is reserved by Unix.
+
+Q13.
+     a.  -bash: b?: No such file or Directory
+     b. Is a < b?
+     c. dad56 is dad56
+     d. $USER is dad56
+     e. Today is Thu Sep 27 00:46:09 EDT 2007
+     f. Today is Thu Sep 27 00:46:28 EDT 2007
+     g. Today is Thu Sep 27 15:09:56 EDT 2007
+     h. ls: e*: No such file or directory
+        Files that start w/e:
+
+Q14. sort itemList-2cols puts the items in order by the first digit
+     in the number proceding the item where sort -n sorts them by
+     the correct full number.
+
+Q15. One would use the command sort -nr  itemList-2cols to sort the
+     items in reverse order.
+
+Q16. lab1.tar.gz takes the previous tar files place.
+
+Q17. The lab1.tgz is now lab1.tar.
+
+Q18. TelecomTruths has the word Vacation in it.
+
+Q19. find . -iname lab1 -print
+     ./CS265/lab1
+

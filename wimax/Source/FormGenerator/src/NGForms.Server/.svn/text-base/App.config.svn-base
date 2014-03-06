@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <sectionGroup name="ngforms">
+      <section name="server" type="NGForms.Server.Configuration.ServerConfigurationSection, NGForms.Server" />
+    </sectionGroup>
+  </configSections>
+  
+  <ngforms>
+    <server portNumber="10155" />
+  </ngforms>
+</configuration>

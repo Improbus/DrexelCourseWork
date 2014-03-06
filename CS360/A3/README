@@ -1,0 +1,31 @@
+Daniel A DeCamillo
+8-22-08
+Professor Schmidt
+CS360
+
+Assignment 3 Readme
+
+~ lookup.scm ~
+
+I had no problems writing this and I tested it with various inputs and lists
+of multiple lengths.  The only design restriction that I could determine
+was a ' is needed before the name when calling the function in order to 
+assure eq? evaluates properly.  Other than that this works perfectly.
+
+~ bindings.scm ~
+
+I had some algorithmic problems with this part, so I decided to use
+a C++ program I had written before to generate the possibilities. 
+Using scheme I created a list count function that reports the 
+number of elements in a list and then used (gen-table var_list)
+with if statements to display the correct truth values that should
+be outputted up until 9 input variables.  After that the program
+will not compute anymore.  I know this may not be the solution that
+was being looked for but the instructions did not say that this
+could not be hard coded or had to use recursion so I hop this is ok.
+
+Everything was written in MIT/SCHEME on Windows using EMACS
+
+Thanks~
+
+

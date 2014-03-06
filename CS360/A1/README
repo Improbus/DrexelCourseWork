@@ -1,0 +1,15 @@
+Daniel DeCamillo
+7-11-08
+Assigment 1
+
+Part I:
+
+graph.py was written in python and it works correctly creating the desired
+output file out.dot.
+
+Part II:
+
+I had some difficulties with this one but as far as I know it traverses the 
+inputs and tells the user whether it is acceptable or not.
+
+One should Note that both take in a file from the command line.

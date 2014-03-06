@@ -1,0 +1,21 @@
+<project default='compile and run'>
+	<target name='compile'>
+		<javac srcdir='./' includes='prob*.java'></javac>
+	</target>
+	<target name='runprob1'>
+		<javac srcdir='./' includes='prob1.java'></javac>
+		<java classpath='./' classname='prob1' fork="true"></java>
+	</target>
+	<target name='runprob2'>
+		<javac srcdir='./' includes='prob2.java'></javac>
+		<java classpath='./' classname='prob2' fork="true" ></java>
+  </target>
+	<target name='runprob3'>
+		<javac srcdir='./' includes='prob3.java'></javac>
+		<java classpath='./' classname='prob3' fork="true"></java>
+  </target>
+	<target name='runprob4'>
+		<javac srcdir='./' includes='prob4.java'></javac>
+		<java classpath='./' classname='prob4' fork="true"></java>
+	</target>
+</project>

@@ -1,0 +1,251 @@
+<project name="DragonChess" basedir="." default="main">
+
+	<!-- program properties -->
+	<property name="lib.dir"     value="${basedir}/lib"/>
+	<property name="bin.dir"     value="${basedir}/bin"/>
+	<property name="src.dir"     value="${basedir}/src"/>
+	<property name="config.dir"  value="${basedir}/config"/>
+	<property name="build.dir"   value="${bin.dir}/classes"/>
+	<property name="jar.dir"     value="${build.dir}/dragonchess"/>
+	<property name="jar.file"    value="${basedir}/bin/${ant.project.name}.jar"/>
+	<property name="main.class"  value="dragonchess.Main"/>
+	<property name="pgn.class"   value="dragonchess.pgn.PGN"/>
+	<property name="log4j.props" value="${config.dir}/log4j.properties"/>
+	<property name="log4j.jar"   value="${lib.dir}/log4j-1.2.15.jar"/>
+
+	<!-- compiler properties -->
+	<property name="debug.flag"       value="true"/>
+	<property name="debuglevel.flag"  value="lines,vars,source"/>
+	<property name="optimize.flag"    value="no"/>
+	<property name="deprecation.flag" value="yes"/>
+	<property name="verbose.flag"     value="no"/>
+
+	<!-- JUnit properties -->
+	<property name="test.dir"    value="${basedir}/tests"/>
+	<property name="reports.dir" value="${basedir}/reports"/>
+
+	<!-- EMMA properties -->
+	<property name="coverage.dir"  location="${reports.dir}/coverage"/>
+	<property name="instr.dir"     location="${basedir}/instr"/>
+	<property name="out.instr.dir" value="${instr.dir}"/>
+
+	<target name="emma">
+		<property name="emma.enabled" value="true"/>
+		<path id="emma.lib">
+			<pathelement location="${lib.dir}/emma.jar"/>
+			<pathelement location="${lib.dir}/emma_ant.jar"/>
+		</path>
+
+		<taskdef resource="emma_ant.properties" classpathref="emma.lib"/>
+	</target>
+
+	<!-- compile classpath -->
+	<path id="compile.classpath">
+		<pathelement path=""/>
+		<fileset file="${log4j.props}"/>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- run classpath -->
+	<path id="run.classpath">
+		<pathelement location="${out.instr.dir}"/>
+		<dirset dir="${build.dir}"/>
+	</path>
+
+	<!-- clean target -->
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+		<delete dir="${instr.dir}"/>
+		<delete dir="${coverage.dir}"/>
+		<delete dir="${reports.dir}"/>
+		<delete>
+			<fileset dir="${bin.dir}" includes="**" defaultexcludes="false"/>
+		</delete>
+	</target>
+
+	<!-- prepare target -->
+	<target name="prepare">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${instr.dir}"/>
+		<mkdir dir="${reports.dir}"/>
+		<mkdir dir="${coverage.dir}"/>
+	</target>
+
+	<!-- compile target -->
+	<target depends="prepare" name="compile">
+		<javac srcdir="${src.dir}"
+			  destdir="${build.dir}"
+			    debug="${debug.flag}"
+		   debuglevel="${debuglevel.flag}"
+		     optimize="${optimize.flag}"
+		  deprecation="${deprecation.flag}"
+		      verbose="${verbose.flag}">
+			<classpath refid="compile.classpath"/>
+			<compilerarg value="-Xlint:unchecked -noverify"/>
+		</javac>
+	</target>
+
+	<!-- compile_test target -->
+	<target depends="compile" name="compile_test">
+		<javac srcdir="${test.dir}"
+			  destdir="${build.dir}"
+			    debug="${debug.flag}"
+		   debuglevel="${debuglevel.flag}"
+		     optimize="${optimize.flag}"
+		  deprecation="${deprecation.flag}"
+		      verbose="${verbose.flag}">
+			<classpath refid="compile.classpath"/>
+			<classpath refid="run.classpath"/>
+			<compilerarg value="-Xlint:unchecked -noverify"/>
+		</javac>
+	</target>
+
+	<!-- jar target -->
+	<target depends="compile" name="jar">
+		<jar destfile="${jar.file}"
+			  basedir="${build.dir}"
+			 includes="dragonchess/**"
+			 excludes="dragonchess/**/*Test*">
+			<fileset file="${log4j.props}"/>
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}"/>
+				<attribute name="Manifest-Version" value="1.0"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- junit target -->
+	<target depends="clean,compile_test" name="test">
+		<junit printsummary="yes" showoutput="yes" haltonfailure="no">
+			<classpath>
+				<path refid="compile.classpath"/>
+				<path refid="run.classpath"/>
+			</classpath>
+			<formatter type="xml"/>
+			<!--
+			<batchtest todir="${reports.dir}">
+				<fileset dir="${test.dir}">
+					<include name="**/*Test*.java"/>
+				</fileset>
+			</batchtest>
+			-->
+			<test name="dragonchess.MainTestSuite"
+				 todir="${reports.dir}"/>
+			<test name="dragonchess.game.GameTestSuite"
+				 todir="${reports.dir}"/>
+			<test name="dragonchess.game.commands.CommandsTestSuite"
+				 todir="${reports.dir}"/>
+			<test name="dragonchess.gui.GuiTestSuite"
+				 todir="${reports.dir}"/>
+			<!--
+			<test name="dragonchess.network.NetworkTestSuite"
+				 todir="${reports.dir}"/>
+			-->
+			<test name="dragonchess.pgn.PgnTestSuite"
+				 todir="${reports.dir}"/>
+		</junit>
+	</target>
+
+	<!-- report target -->
+	<target depends="test" name="report">
+		<junitreport todir="${reports.dir}">
+			<fileset dir="${reports.dir}" includes="TEST-*.xml"/>
+			<report todir="${reports.dir}"/>
+		</junitreport>
+	</target>
+
+	<!-- instr target -->
+	<target depends="clean,emma,compile_test" name="instr" if="emma.enabled">
+		<emma>
+			<instr instrpathref="compile.classpath"
+						destdir="${out.instr.dir}"
+				   metadatafile="${coverage}/metadata.emma"
+						  merge="true"/>
+		</emma>
+	</target>
+
+	<!-- coverage target -->
+	<target depends="instr" name="coverage">
+		<junit printsummary="yes" fork="yes" haltonfailure="yes">
+			<classpath>
+				<path refid="compile.classpath"/>
+				<path refid="run.classpath"/>
+			</classpath>
+			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma"/>
+			<jvmarg value="-Demma.coverage.out.merge=true"/>
+			<formatter type="plain"/>
+			<formatter type="xml"/>
+			<batchtest todir="${reports.dir}">
+				<fileset dir="${test.dir}">
+					<include name="**/*Test*.java"/>
+				</fileset>
+			</batchtest>
+			<!--<test name="dragonchess.MainTestSuite" todir="${reports.dir}"/>-->
+		</junit>
+	</target>
+
+	<!-- run target -->
+	<target depends="jar" name="run">
+		<java fork="true" classname="${main.class}">
+			<classpath>
+				<path refid="compile.classpath"/>
+				<path refid="run.classpath"/>
+				<path location="${jar.file}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<!-- run-local target -->
+	<target depends="clean,jar" name="run-local">
+		<java fork="true" classname="${main.class}">
+			<classpath>
+				<path refid="compile.classpath"/>
+				<path refid="run.classpath"/>
+				<path location="${jar.file}"/>
+			</classpath>
+			<arg value="local"/>
+		</java>
+	</target>
+
+	<!-- run-pgn target -->
+	<target depends="jar" name="run-pgn">
+		<java fork="true" classname="${pgn.class}">
+			<classpath>
+				<path refid="compile.classpath"/>
+				<path refid="run.classpath"/>
+				<path location="${jar.file}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<!-- help target -->
+	<target name="help">
+		<echo message="Here's a list of all available targets for this project."/>
+		<echo>help          - prints this list</echo>
+		<echo>clean         - provides a clean start</echo>
+		<echo>prepare       - creates any directories/file that are need for compilation</echo>
+		<echo>compile       - compiles ${ant.project.name}</echo>
+		<echo>jar           - creates an executable jar file for ${ant.project.name}</echo>
+		<echo>test          - runs the JUnit test for ${ant.project.name}</echo>
+		<echo>report        - creates a report based on the JUnit test for ${ant.project.name}</echo>
+		<echo>instr         - instrument the code for ${ant.project.name}</echo>
+		<echo>coverage      - run the JUnit tests using EMMA for ${ant.project.name}</echo>
+		<echo>run           - run the executable jar file of ${ant.project.name}</echo>
+		<echo>clean-build   - calls the clean and jar targets</echo>
+		<echo>clean-compile - calls the clean and compile targets</echo>
+		<echo>main          - calls the clean and run targets</echo>
+	</target>
+
+	<!--
+	main and other usefull targets
+	-->
+
+	<target depends="clean,jar" name="clean-build"/>
+
+	<target depends="clean,compile" name="clean-compile"/>
+
+	<target depends="clean,run" name="main"/>
+
+</project>

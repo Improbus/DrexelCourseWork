@@ -1,0 +1,88 @@
+Dan DeCamillo
+10-24-07
+Lab 5 Written Exercises
+
+Q1:
+
+	i.  A list is a sequence of elements that are not immediately indexable.
+			Consecutive elements in a list are linked with pointers.
+
+	ii. A stack is a temporary storage place for the computer to use.  This is
+			based on the Last in First Out system, and is used for interrupt handling
+			and function calls.
+
+	iii. A queue is a data structure that holds a collection of information
+			 that is presented in a certain order to implement the First In First Out
+			 system.  A queue is a type of buffer.
+
+	iv. Dictionaries and Maps are a data structure that allows the association
+			of a key with another term.
+
+Q2:
+
+log(n)
+
+Q3:
+
+n times
+
+Q4:
+
+One would use linear search if the items do not need to be sorted.
+
+Q5:
+
+*84* 37 93 82 98 27 63 73 93 27 75 55 45 8
+37 82 27 63 73 27 75 55 45 8 *84* 93 98 93
+*37* 82 27 63 73 27 75 55 45 8 *84* 93 98 93
+27 27 8 *37* 82 63 73 75 55 45 84 93 98 93
+*27* 27 8 37 82 63 73 75 55 45 84 93 98 93
+8 *27* 27 37 82 63 73 75 55 45 84 93 98 93
+8 27 27 37 | *82* 63 73 75 55 45 84 93 98 93
+8 27 27 37 | 63 73 75 55 45 *82* 84 93 98 93
+8 27 27 37 | 55 45 63 73 75 82 84 93 98 93
+8 27 27 37 | 45 55 63 73 75 82 84 93 98 93
+8 27 27 37 45 55 63 73 75 82 84 | 93 98 93
+8 27 27 37 45 55 63 73 75 82 84 | 93 93 98
+8 27 27 37 45 55 63 73 75 82 84 93 93 98
+< DONE >
+
+Q6:
+
+[06]->[24]->[3]
+
+Q7:
+
+[13, [28, [24, [3, None]]]]
+
+Q8:
+
+There are 2 sets of different output because the buffer size is changing.
+THe changing of the buffer size causes the output of the pointers to vary
+because the memory allocations of pointers is crucial to their definiton.
+
+Q9:
+
+Jaga 24
+Jesse 78
+Cos 86 
+Kate 28
+Nash 11
+Vera 99
+Bob 38
+
+hash.c takes 2 arrays and associates them with one another using pointers
+to associate an index value with a name.
+
+Q10:
+
+int find(char *key, int *p_ans)
+{ 
+	if(p_ans==key)
+	{	
+		p_ans -> key;
+		return 1;
+	}
+	else
+		return 0;
+}

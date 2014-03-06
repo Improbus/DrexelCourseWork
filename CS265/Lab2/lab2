@@ -1,0 +1,132 @@
+Dan DeCamillo
+Lab 2
+10-3-07
+
+Q1:
+
+./.bash_profile
+./.bashrc
+./.bash_history
+./CS265/Lab2/Bash/Makefile
+./CS265/Lab2/Bash/a.out
+./CS265/Lab2/Bash/args.bash
+./CS265/Lab2/Bash/args2.bash
+./CS265/Lab2/Bash/args3.bash
+./CS265/Lab2/Bash/awk.tmp
+./CS265/Lab2/Bash/blah
+./CS265/Lab2/Bash/breadIsDangerous.txt
+./CS265/Lab2/Bash/config
+./CS265/Lab2/Bash/deleteme
+./CS265/Lab2/Bash/eg.bash
+./CS265/Lab2/Bash/eg.c
+./CS265/Lab2/Bash/func.bash
+./CS265/Lab2/Bash/getopts.bash
+./CS265/Lab2/Bash/index.html
+./CS265/Lab2/Bash/index2.html
+./CS265/Lab2/Bash/list
+./CS265/Lab2/Bash/my file
+./CS265/Lab2/Bash/out.bash
+./CS265/Lab2/Bash/outline.html
+./CS265/Lab2/Bash/rv.bash
+./CS265/Lab2/Bash/uniq.sample
+./CS265/Lab2/Bash/vera.bash
+./CS265/Lab2/Bash/spellExample.bak
+./CS265/Lab2/Bash/spellExample
+./CS265/Lab2/lab2
+./CS265/Lab2/.lab2.swp
+./CS265/Lab1/Makefile
+./CS265/Lab1/TEST
+./CS265/Lab1/TelecomTruths
+./CS265/Lab1/UnitTestingPhase
+./CS265/Lab1/annoy
+./CS265/Lab1/annoy.cc
+./CS265/Lab1/funny
+./CS265/Lab1/hello.bash
+./CS265/Lab1/itemList
+./CS265/Lab1/itemList-2cols
+./CS265/Lab1/lab1
+./CS265/Lab1/lab1.tgz
+./CS265/Lab1/lab1test.tar
+./CS265/Lab1/vi_lab
+./.lesshst
+./.bash_profile.backup
+./.bashrc.backup
+./.viminfo
+
+
+Q2:
+
+find -iname *.bash
+
+Q3:
+
+./CS265/hello.bash
+./CS265/Lab2/Bash/args.bash
+./CS265/Lab2/Bash/args2.bash
+./CS265/Lab2/Bash/args3.bash
+./CS265/Lab2/Bash/eg.bash
+./CS265/Lab2/Bash/func.bash
+./CS265/Lab2/Bash/getopts.bash
+./CS265/Lab2/Bash/out.bash
+./CS265/Lab2/Bash/rv.bash
+./CS265/Lab2/Bash/vera.bash
+./CS265/Lab1/hello.bash
+
+Q4:
+  73  421 2538 /home/dad56/CS265/Lab2/Bash/breadIsDangerous.txt
+
+Q5:
+
+grep "the" ~/CS265/Lab2/Bash/breadIsDangerous.txt | wc -l
+8
+
+Q6:
+
+The Spelling is now correct and creates a backup file names
+spellExample.bak.
+
+Q7:
+
+3c3
+< bunch of my old friends did something
+---
+> bnuch of my old freinds did somehting
+6d5
+< An Extra Line
+
+The differences between the normal file and the backup file are displayed.
+
+Q8:
+
+There is nothing printed because it is checking to see the differences
+within itself and there isn't any, therefore nothing is printed.
+
+Q9: 
+
+5.   Bread is made from a substance called "dough." It has been
+proven that as little as one pound of dough can be used to
+
+0
+
+The command returned the line that had dough in it and then the echo command
+displayed 0 which means it returned true.
+
+Q10:
+
+grep uniqueString breadIsDangerous.txt
+1
+
+The echo command returned 1 therefore stating that the command returned a
+false answer.
+
+Q11:
+
+See attached file count.bash
+
+Q12:
+
+See attached file reextend.bash
+
+Q13:
+
+See Attached file organiseMusic.bash

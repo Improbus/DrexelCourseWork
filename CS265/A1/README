@@ -1,0 +1,54 @@
+Dan DeCamillo
+10-15-07
+Assignment 1 Readme
+
+Problem 1:
+
+Using a combinating of the ls and wc commands to find the number of
+directories as well as the number of files within those directies.  With
+these commands I was able to find the appropriate numbers and assign them
+using the echo command.  One can run the script via prob1.bash and the
+output file is prob1.out.
+
+Problem 2:
+
+Using egrep with a regular expression I was able to take the first occurance
+of every field that contained who the message was from.  These names after
+being found were redirected to a file called Senders.txt from which I wrote
+a small awk script that recurses through the Senders.txt file places each
+name once in alphabetical order in another file named SortedSenders.txt.
+After completing this task using cat and wc the script determines how many
+doctors are in the file therefore determining the number of Doctors who have
+sent messages.  The ouput is displayed on the screen as well as written to a
+file named prob2.out.
+
+Problem 3:
+
+Using the script from problem 2, I was able to use a combination of uniq and
+sort to take the Senders.txt file created from the egrep command and count
+the number of times a doctors name is repeated placing a number of
+repetitions next to their name for output.  By doing this we are able to see
+that each time a message is found from a certain doctor, that message was
+sent by that doctor therefore allowing us to use cat to see the number of
+messages on the left and the doctors name on the right.
+
+Problem 4:
+
+Much like the last two problems instead of finding the amount of
+repetitions, I counted the results of the egrep command which displays all
+of the senders and therefore the number of senders is equal to the number of
+messages.  The messages are over an 11 month period so using 2 variables and
+a binary calculator built into bash I took the total number of messages and
+divided them by 11 to find the average amount of messages sent each month.
+The output is sent to the screen as well as to the file named prob4.out.
+
+Problem 5:
+
+Using a variable to take in user parameters, I was able to build a script
+combining the previous scripts to allow the user to specify a certain doctor
+and in return receive the average number of messages per month that doctor
+sends.  Using a combination of the script from problem 3 and the binary math
+calculation from problem 4 the user is able to contain the information
+desired.  If the user does not enter a doctors name an error will be
+returned.  The output is to the screen as well as to a file named prob5.out.
+

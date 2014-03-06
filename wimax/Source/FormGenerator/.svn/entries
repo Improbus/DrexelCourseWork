@@ -1,0 +1,80 @@
+9
+
+dir
+125
+svn+ssh://tux.cs.drexel.edu/home/hvd24/wimax/Source/FormGenerator
+svn+ssh://tux.cs.drexel.edu/home/hvd24/wimax
+
+
+
+2010-05-12T03:56:13.354662Z
+124
+hvd24
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+05691419-2ad5-4041-b5fa-37086c4aaa83
+
+test
+dir
+
+tools
+dir
+
+lib
+dir
+
+install
+dir
+
+src
+dir
+
+NgForms.Everything.sln
+file
+
+
+
+
+2010-05-10T23:34:16.547355Z
+89aede3285bd8f5cc35f5c5c44841143
+2010-05-07T03:05:16.177294Z
+101
+hvd24
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6071
+
+thirdparty
+dir
+

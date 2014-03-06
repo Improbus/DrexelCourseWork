@@ -1,0 +1,6 @@
+ieeevarstd_logic_1164ieee.sym/std_logic_1164/prim.var
+ieeesrcstd_logic_1164stdlogic.vhd
+ieeevarstd_logic_arithieee.sym/std_logic_arith/prim.var
+ieeesrcstd_logic_arithstdlogicarith.vhd
+.varregister8a2p2.sym/register8/prim.var
+.srcregister8register8.vhd

@@ -1,0 +1,10 @@
+<project default='JavaCalculator'>
+	<target name='JavaCalculator'>
+			<javac srcdir='./' includes='JavaCalculator.java'></javac>
+		</target>
+		<target name='runJavaCalculator'>
+			<java classpath='./' classname='JavaCalculator' fork="true">
+				<arg file="input.txt" /> </java>
+		</target>
+</project>
+

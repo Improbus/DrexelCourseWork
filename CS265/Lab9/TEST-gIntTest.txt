@@ -1,0 +1,15 @@
+Testsuite: gIntTest
+Tests run: 2, Failures: 2, Errors: 0, Time elapsed: 0.007 sec
+
+Testcase: testAdd took 0.004 sec
+	FAILED
+expected:<gInt@7cbe41ec> but was:<gInt@2eda2cef>
+junit.framework.AssertionFailedError: expected:<gInt@7cbe41ec> but was:<gInt@2eda2cef>
+	at gIntTest.testAdd(Unknown Source)
+
+Testcase: testMult took 0 sec
+	FAILED
+expected:<gInt@43a6684f> but was:<gInt@620a3d3b>
+junit.framework.AssertionFailedError: expected:<gInt@43a6684f> but was:<gInt@620a3d3b>
+	at gIntTest.testMult(Unknown Source)
+

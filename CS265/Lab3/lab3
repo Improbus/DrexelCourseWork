@@ -1,0 +1,48 @@
+Dan DeCamillo
+10-12-07
+Lab 3 Regular Expressions Exercises
+
+Q1:
+
+awk '/the./' bright_side_of_life
+
+Q2:
+
+awk '/the/' bright_side_of_life
+
+Q3:
+
+awk '/Just/' bright_side_of_life
+
+Q4:
+
+awk '/[jJ]ust/' bright_side_of_life
+
+Q5:
+
+awk '/^[jJ]ust/' bright_side_of_life
+
+Q6:
+
+awk '/[bm]ad/' bright_side_of_life
+
+Q7:
+
+awk '/[d|br]eath/' bright_side_of_life
+
+Q8:
+
+awk '/you[.|,]/' bright_side_of_life
+
+Q9:
+
+awk '/^ /' bright_side_of_life
+
+Q10:
+
+awk '{print NR  ""}' bright_side_of_life
+
+Q11:
+
+There were 50 lines when I ran my awk script.
+

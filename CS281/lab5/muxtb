@@ -1,0 +1,113 @@
+File Name : tb_tmp.vhd
+
+
+
+-- This testbench was automatically generated
+
+
+-- Filename          : tb_tmp.vhd
+-- Modelname         : TB_MUX
+-- Title             :
+-- Purpose           :
+-- Author(s)         : root
+-- Comment           :
+-- Assumptions       :
+-- Limitations       :
+-- Known errors      :
+-- Specification ref :
+-- ------------------------------------------------------------------------
+-- Modification history:
+-- ------------------------------------------------------------------------
+-- Version  | Author | Date       | Changes made
+-- ------------------------------------------------------------------------
+-- 1.0      | root | 19.05.2008 | inital version
+
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity TB_MUX is
+end TB_MUX;
+
+architecture BEH of TB_MUX is
+
+   component MUX
+      port(X   : in std_logic ;
+           Y   : in std_logic ;
+           Z   : in std_logic ;
+           J   : in std_logic ;
+           I   : in std_logic_vector ( 1 downto 0 );
+           K   : out std_logic );
+
+   end component;
+
+
+   constant PERIOD : time := 10 ns;
+
+   signal W_X   : std_logic ;
+   signal W_Y   : std_logic ;
+   signal W_Z   : std_logic ;
+   signal W_J   : std_logic ;
+   signal W_I   : std_logic_vector ( 1 downto 0 );
+   signal W_K   : std_logic ;
+
+begin
+
+   DUT : MUX
+      port map(X   => W_X,
+               Y   => W_Y,
+               Z   => W_Z,
+               J   => W_J,
+               I   => W_I,
+               K   => W_K);
+
+   ???? <= not ???? after PERIOD/2;
+
+   STIMULI : process
+   begin
+      W_X   <= '0';
+      W_Y   <= '0';
+      W_Z   <= '0';
+      W_J   <= '0';
+      W_I   <= (others => '0');
+
+      wait for PERIOD;
+      wait;
+   end process STIMULI;
+
+end BEH;
+
+configuration CFG_TB_MUX of TB_MUX is
+   for BEH
+   end for;
+end CFG_TB_MUX;
+
+
+
+File Name : tb_tmp.ini
+
+
+
+comm traces
+   cd /TB_MUX/DUT
+   trace X
+   trace Y
+   trace Z
+   trace J
+   trace I
+   trace K
+end
+
+traces
+run 1000
+
+
+
+File Name : SIM_tb_tmp
+
+
+
+
+vhdldbx -i tb_tmp.ini CFG_TB_MUX &
+
+

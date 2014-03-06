@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "There Are No Binaries Since this was Written in Python"
+echo ".dot files created will now be removed"
+
+rm *.dot

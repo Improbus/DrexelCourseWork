@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z $1 ] ; then
+	limit=600; # 10 minutes
+else
+	limit=$(( $1 * 60 ))
+fi
+
+count=0
+
+for (( count=0; count < 10; ++count )) ; do
+	echo -ne "$count..."
+	sleep 10
+done
+

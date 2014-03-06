@@ -1,0 +1,129 @@
+#!/usr/bin/python
+
+import sets
+import sys
+
+file = open("sample.db", 'r' )
+db = file.readlines()
+
+Artist = []
+AlbumInfo = []
+TrackInfo = []
+AlbumDict = {}
+TrackDict = {}
+
+#for i in range(0, int(len(db))):
+Artist.append(db[0])
+AlbumInfo.append(db[1])
+for i in range(2, int(len(db))):
+	TrackInfo.append(db[i])
+	
+
+AlbumDict[Artist[0]] = AlbumInfo[0]
+TrackDict[AlbumInfo[0]] = TrackInfo
+
+def commandline():
+	choice = str(sys.argv[1])
+	if choice=="-l":
+		lmenu()
+	elif choice=="-d":
+		dmenu()
+	elif choice=="-a":
+		amenu()
+	elif choice=="-h":
+		hmenu()
+	else:
+		print "Please See cddb -h for commands."
+		return 0;
+
+def lmenu():
+	createMenu = {}
+	createAlbumMenu = {}
+	for i in range(0, int(len(Artist))):
+		print str(i) + " " + Artist[i]
+		createMenu[str(i)] = Artist[i]
+	
+	menuchoice = raw_input("Please Enter the Number of the Artist or q to quit: ")
+	
+	if menuchoice == 'q':
+		return 0
+	else:
+		for i in range(0, int(len(AlbumDict))):
+			print str(i) + " " + AlbumDict[createMenu[menuchoice]]
+			createAlbumMenu[str(i)] = AlbumDict[createMenu[menuchoice]]
+		albumchoice = raw_input("Please Enter the Number of the Album or press a to return to the artist list: ")
+		if albumchoice == 'a':
+			lmenu()
+		else:
+			print TrackDict[createAlbumMenu[albumchoice]]
+
+	createNewDB()
+
+def dmenu():
+	createMenu = {}
+	createAlbumMenu = {}
+	for i in range(0, int(len(Artist))):
+		print str(i) + " " + Artist[i]
+		createMenu[str(i)] = Artist[i]
+	menuchoice = raw_input("Please Enter the Number of the Artist or q to quit: ")
+	if menuchoice == 'q':
+		return 0
+	else:
+		for i in range(0, int(len(AlbumDict))):
+			print str(i) + " " + AlbumDict[createMenu[menuchoice]]
+			createAlbumMenu[str(i)] = AlbumDict[createMenu[menuchoice]]
+		albumchoice = raw_input("Please Enter the Number of the Album you wish to delete or press a to return the the artist listing: ")
+		if albumchoice == 'a':
+			dmenu()
+		else:
+			del TrackDict[createAlbumMenu[albumchoice]]
+	
+	createNewDB()
+
+def	amenu():
+	print "The following questions will allow you to add an album to the database"
+	album = raw_input("Please Enter the release date follwed by the Album Name: ")
+	artist = raw_input("Please Enter the Artist Name: ")
+	tracks = []
+	tracklist = raw_input("Type the Tracks and press enter after each one.	Leave blank to finish: ")
+	tracks.append(tracklist)
+	
+	while tracklist != "":
+		tracklist = raw_input("Type the Tracks and press enter after each one.	Leave blank to finish: ")
+		tracks.append(tracklist)
+				   
+
+
+	AlbumDict[artist] = album
+	TrackDict[album] = tracks
+
+	createNewDB()
+	
+def hmenu():
+	print "This is the Help Menu for the cddb Program"
+	print "This program will manage a cd database allowing the user to"
+	print " retrieve information and to add and delete from the database"
+	print "<------------------------------- Usage ------------------------------------->"
+	print "cddb argument"
+	print "<--------------------- Arguments ---------------------->"
+	print " -l -------- Lists all Artists and supplies the user with the ability to look up albums and track information."
+	print " -a -------- Allows the addition of an album to the database"
+	print " -d -------- Allows the removal of an album from the database"
+	print " -h -------- Displays the user manual for cddb."
+
+def createNewDB():
+	DataBase = open("cd.db", 'w')
+	for i in AlbumDict.keys():
+		DataBase.write(repr(i))
+		DataBase.write('\n')
+		for n in TrackDict.keys():
+			DataBase.write(repr(n))
+			DataBase.write('\n')
+			for k in TrackDict.values():
+				DataBase.write(repr(k))
+				DataBase.write('\n')
+
+	DataBase.close()
+
+
+commandline()

@@ -1,0 +1,128 @@
+#!/usr/bin/python
+#
+# Dan DeCamillo
+# 7-23-08
+# Version 1.0
+
+import sys
+M_LEVEL = 0
+
+out = open("byHand.dot", 'w')
+
+def mprint( l, s ) :
+	if l >= M_LEVEL :
+		sys.stderr.write( s )
+
+### These are administrative functions
+
+def error() :
+	print "parse error:", token
+	sys.exit( 1 )
+
+def nextToken() :
+	''' Read the next token, store in global token
+	tokens are characters '''
+	global token
+	token = sys.stdin.read( 1 )
+	mprint( 2, "nextToken: got token: '%s'\n" % token )
+
+def match( t ) :
+	''' if current token  is t, get next token
+	else, call error() '''
+	global token
+	if token == t : nextToken()
+	else : error()
+
+### These are the various rec. functions that make up the parser
+
+def command() :
+	''' command -> closure '\n' '''
+	global token
+	result = closure()
+	if token == '\n' :
+			# end the parse and print the result
+		print "The result is:", result
+	else :
+		error()
+
+def closure() :
+	''' closure -> term { '*' } '''
+	global token
+	result = term()
+	while token == '*' :
+		match( '*' )
+		out.write('0->1 [label="e"]\n')
+		out.write('1->2 [label="a"]\n')
+		out.write('2->1 [label="e"]\n')
+		out.write('2->3 [label="e"]\n')
+		out.write('0->3 [label="e"]\n')		
+		result = term()
+	return result
+
+def term() :
+	'''term -> concat {'' concat } '''
+	global token
+	result = concat()
+	while token == 'a' or token == 'b' :
+		match( '' )
+		out.write('0->1 [label="a"]\n')
+		out.write('1->2 [label="b"]\n')
+		result = concat()
+	return result
+
+def concat() :
+	''' factor -> '( ' expr ')' { '' factor} '''
+	global token
+	if token == '(' :
+		match( '(' )
+		result = closure()
+		match( ')' )
+	else :
+		result = union()
+	return result
+
+def union() :
+	''' union -> letter {'|' letter } '''
+	global token
+	result = letter()
+	while token == '|' :
+		match( '|' )
+		out.write('0->1 [label="a"]\n')
+		out.write('0->1 [label="b"]\n')
+		result = letter()
+	return result
+
+def letter() :
+	''' digit -> 'a' | 'b' '''
+	global token
+	if token == 'a' or token == 'b' :
+		result = str( token )
+		match( token )
+	else :
+		error()
+	return result
+
+def parse() :
+	nextToken()	# get the first token
+	command()		# call the parsing procedure for the start symbol
+
+def closebracket() :
+	out.write('}')
+
+def main() :
+	out.write('digraph fsm {\n')
+	out.write('rankdir="LR"\n')
+	out.write('start [shape="plaintext",label="start"]\n')
+	out.write('0 [shape="circle",label="S0"]\n')
+	out.write('1 [shape="circle",label="S0"]\n')
+	out.write('2 [shape="circle",label="S0"]\n')
+	out.write('3 [shape="doublecircle",label="S0"]\n')
+	out.write('start->0\n')
+	parse()
+	closebracket()
+	return 0
+
+if __name__ == '__main__' :
+	main()
+
+

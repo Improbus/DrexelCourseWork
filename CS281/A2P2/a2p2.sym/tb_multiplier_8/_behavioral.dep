@@ -1,0 +1,5 @@
+ieeevarstd_logic_1164ieee.sym/std_logic_1164/prim.var
+ieeesrcstd_logic_1164stdlogic.vhd
+.vartb_multiplier_8(behavioral)a2p2.sym/tb_multiplier_8/_behavioral.var
+.srctb_multiplier_8(behavioral)MULT_8_TB.vhd
+.vartb_multiplier_8a2p2.sym/tb_multiplier_8/prim.var

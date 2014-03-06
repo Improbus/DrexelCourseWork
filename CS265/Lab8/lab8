@@ -1,0 +1,62 @@
+Dan DeCamillo
+11-14-07
+Lab 8 Written Answers
+
+Q1:
+
+	(i)	Hide Implementation Details refers to hiding information,
+			encapsulation, abstraction, and modularization in order for it to be
+			modified later by the programmer and not by the user.
+	
+	(ii) Choosing a small orthogonal set of primitives means that there should
+			 be a limited set of methods to do a task or set of tasks.
+
+	(iii) Don't reach behind the users back means that libraries and programs
+				should not write secret files or modify global data.  This also means that a
+				program should be careful in what it changes.
+
+	(iv) Do The Same Thing refers to operations and related topics to be
+			 completed the same way each time and share some common name that is
+			 recognizable.  This also refers to both internal and external code.
+
+Q2:
+
+	In the first C implementation global variables are used, the caller must
+	open and close files,	nothing is saved from one line to the next, theres
+	no way to access anything after its been placed, and the code is interwoven
+	therefore making it very difficult to change properties.
+
+Q3:
+	
+	The improvements are as follows; the fields are numbered from 0, returns
+	from the last line read, fields are separated by commas, quotes can be read,
+	fields can only be read and not changes, and can read lines of any length.
+
+Q4:
+	
+	The first revision still uses global variables, and the functions are
+	still interwoven dependent on each other. The data that is input is also
+	still lost and is not stored or accessible at a later time.  The program does not have the
+	ablility to take in more than one file and parse more than one csv at a
+	time.
+
+Q5:
+
+	The C++ implementation uses a class to properly hide the implememntation
+	details. The C++ implementation uses strings and dynamic vectors to store
+	fields therefore making the program not have to uses statically assigned
+	arrays. 
+
+Q6:
+
+	For the most part the C++ implementation adheres to most of the topics
+	discussed in the interface lecture.  The C++ program properly hides
+	implementation by using a class structure.  It also uses a small set of methods to
+	complete its goal.  By using vectors there is no static allocation of memory
+	therefore the program does not reach behind the user's back and the data
+	is still accessible.  Also the C++ implementation uses common names and
+	functions both internally and	externally.
+
+Q7:
+
+	See Csv.java, and test.csv	

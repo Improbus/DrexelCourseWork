@@ -1,0 +1,36 @@
+:quack.cs.drexel.edu NOTICE Auth :*** Found your hostname (dynamic-acs-72-23-150-176.zoominternet.net)
+:quack.cs.drexel.edu 001 sdlfkj :Welcome to the Drexel IRC Network sdlfkj!sdlfkj@dynamic-acs-72-23-150-176.zoominternet.net
+:quack.cs.drexel.edu 003 sdlfkj :This server was created 14:26:10 Sep 18 2009
+:quack.cs.drexel.edu 005 sdlfkj WALLCHOPS WALLVOICES MODES=20 CHANTYPES=# PREFIX=(ohv)@%+ MAP MAXCHANNELS=20 MAXBANS=60 VBANLIST NICKLEN=32 CASEMAPPING=rfc1459 STATUSMSG=@%+ CHARSET=ascii :are supported by this server
+:quack.cs.drexel.edu 042 sdlfkj 250AAAMXN :your unique ID
+:quack.cs.drexel.edu 372 sdlfkj :-  
+:quack.cs.drexel.edu 372 sdlfkj :- |_   _|                      |_   _| |  __ \  / ____|    | |
+:quack.cs.drexel.edu 372 sdlfkj :-   | |   | '_ \  / __| | '_ \   | |   |  _  / | |      / _` |
+:quack.cs.drexel.edu 372 sdlfkj :- |_____| |_| |_| |___/ | .__/ |_____| |_|  \_\ \_____| \__,_|
+:quack.cs.drexel.edu 372 sdlfkj :-    |__________________|_|_______________________________|
+:quack.cs.drexel.edu 372 sdlfkj :-                         Putting the ricer in IRCer since 2007
+:quack.cs.drexel.edu 372 sdlfkj :-        //\ 
+:quack.cs.drexel.edu 372 sdlfkj :-         \  \_    If you see this, I am probably new.
+:quack.cs.drexel.edu 372 sdlfkj :-           |\ `. `. 
+:quack.cs.drexel.edu 372 sdlfkj :-            \ \   `.  `-._             __..--' ,-';/
+:quack.cs.drexel.edu 372 sdlfkj :-              `. `.    `-._        __..--'    ,' /
+:quack.cs.drexel.edu 372 sdlfkj :-                  `-_ `-.___        __,--'   ,'
+:quack.cs.drexel.edu 372 sdlfkj :-                          `--..____..--'
+:quack.cs.drexel.edu 372 sdlfkj :-         -- To change, see inspircd.motd.example --
+:quack.cs.drexel.edu 372 sdlfkj :-       /     * Web: http://www.inspircd.org         \
+:quack.cs.drexel.edu 372 sdlfkj :-       |     * IRC: irc.inspircd.org #inspircd      |
+:quack.cs.drexel.edu 372 sdlfkj :-       |     * Bugs: http://inspircd.org/bugtrack/  |
+:quack.cs.drexel.edu 372 sdlfkj :-       | We hope you like this software. Please do  |
+:quack.cs.drexel.edu 372 sdlfkj :-       | your configuration, though, so you love it.|
+:quack.cs.drexel.edu 372 sdlfkj :-       |                                            |
+:quack.cs.drexel.edu 372 sdlfkj :-        -------------------------------------------
+:quack.cs.drexel.edu 372 sdlfkj :-  
+:quack.cs.drexel.edu 251 sdlfkj :There are 3 users and 1 invisible on 1 server
+:quack.cs.drexel.edu 255 sdlfkj :I have 4 clients and 0 servers
+:quack.cs.drexel.edu 353 sdlfkj = #a :phil Fischer Test sdlfkj 
+:quack.cs.drexel.edu 502 sdlfkj :Can't change mode for other users
+:quack.cs.drexel.edu 254 sdlfkj 1 :channels formed
+:quack.cs.drexel.edu 353 sdlfkj = #a :phil Fischer Test sdlfkj 
+:quack.cs.drexel.edu 321 sdlfkj Channel :Users Name
+:quack.cs.drexel.edu 323 sdlfkj :End of channel list.
+ERROR :Closing link (sdlfkj@dynamic-acs-72-23-150-176.zoominternet.net) [Quit: DONE]

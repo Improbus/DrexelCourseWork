@@ -1,0 +1,192 @@
+Part 3 
+
+Program Trace in SICP
+
+(define (fact n)
+         (if (= n 0) 1 (* n (fact (- n 1)))))
+      (fact 3)
+
+Program Run in Scheme via the Interpreter
+
+
+1 ]=> (load "ch4-mceval.scm")
+
+;Loading "ch4-mceval.scm" -- done
+;Value: metacircular-evaluator-loaded
+
+1 ]=> (define the-global-environment (setup-environment))
+
+;Value: the-global-environment
+
+1 ]=> (driver-loop)
+
+
+;;; M-Eval input:
+(define (fact n)
+         (if (= n 0) 1 (* n (fact (- n 1)))))
+      (fact 3)
+
+;;; M-Eval value:
+ok
+
+;;; M-Eval input:
+
+;;; M-Eval value:
+6
+
+;;; M-Eval input:
+
+
+Trace
+
+
+(trace fact)
+;Unspecified return value
+
+(trace (fact 3))
+[Entering #[compound-procedure 11 fact]
+    Args: 3]
+[Entering #[compound-procedure 11 fact]
+    Args: 2]
+[Entering #[compound-procedure 11 fact]
+    Args: 1]
+[Entering #[compound-procedure 11 fact]
+    Args: 0]
+[1
+      <== #[compound-procedure 11 fact]
+    Args: 0]
+[1
+      <== #[compound-procedure 11 fact]
+    Args: 1]
+[2
+      <== #[compound-procedure 11 fact]
+    Args: 2]
+[6
+      <== #[compound-procedure 11 fact]
+    Args: 3]
+
+ASSUMING APPLICATIVE ORDER	
+
+~1~
+	
+Eval called with:
+
+(eval (define (fact n) (if (= n 0) 1 (* n (fact (- n 1))))) env)
+
+~2~
+
+((self-evaluating? exp) exp) Returns False
+ ((variable? exp) Returns False (lookup-variable-value exp env)) Returns False
+ ((quoted? exp) Returns False (text-of-quotation exp))  Returns False
+ ((assignment? exp) Returns False (eval-assignment exp env))  Returns False
+ 
+ ((definition? exp) Returns True (eval-definition exp env)) returns true
+ 
+ ~3~
+ 
+ (eval-definition exp env) is called
+ 
+ ~4~
+ 
+ (define-variable!) is called.  Here the function name and arguments are bound to one another
+ 
+ ~5~
+ 
+ eval is called again with the rest of the function
+ 
+ ~6~
+ 
+ ((if? exp) (eval-if exp env)) returns true and a call to eval-if is made
+ 
+ ~7~
+ 
+ (define (eval-if exp env)
+  (if (true? (eval (if-predicate exp) env))
+      (eval (if-consequent exp) env)
+      (eval (if-alternative exp) env)))
+
+~8~
+(eval(if-predicate exp) env) is called
+
+~9~
+
+ ((application? exp)
+         (apply (eval (operator exp) env)
+                (list-of-values (operands exp) env))) returns true 
+				
+~10~ 
+
+eval is called with the operator being a primitive and the numbers and letters self evaluated and
+then the answer to the first if is self evaluated.
+
+~11~
+
+eval is called with the rest of the function
+
+again 
+
+((application? exp)
+         (apply (eval (operator exp) env)
+                (list-of-values (operands exp) env))) returns true 
+			
+~12~
+
+* is evaluated as a primitive and again n is self evaluated.
+
+~13~
+eval is called with the remaining part of the function
+
+~14~
+
+lambda? returns true.
+
+~15~
+
+fact is associated with a function call and the arguments are passed to eval
+
+~16~
+
+again 
+
+((application? exp)
+         (apply (eval (operator exp) env)
+                (list-of-values (operands exp) env))) returns true 
+				
+~17~
+
+the two arguments are self evaluated
+
+~18~
+
+trace for 
+(eval (define (fact n) (if (= n 0) 1 (* n (fact (- n 1))))) env) 
+complete
+
+~1~
+	
+Eval called with:
+
+(eval (fact 3) (env from the creation of the function is passed))
+
+~2~
+
+(lambda?) returns true
+
+~3~
+
+make-procedure is called and creates the proper form and arguments using the passes environment
+
+~4~
+
+lambda paramenters is called and (- n 1) is self evaluated using the environment passed
+
+~5~
+
+lambda body is called to make the function call look like a function call
+
+~6~ 
+begin evaluates true and then each part of the sequence is evaluated via the passed environment
+
+~7~
+
+the answer 6 is produced

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:background="@drawable/bdisaster">
+
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:id="@+id/TextView02" android:textColor="#E66C2C" android:textStyle="bold" android:textSize="28sp"/>
+
+
+ <ListView android:layout_width="fill_parent"
+              android:id="@+id/contactList"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"/>
+              
+<LinearLayout
+		android:id="@+id/linlayoutButtons"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="0"
+		>
+
+<Button android:id="@+id/Button01"
+ android:layout_height="wrap_content" 
+ android:layout_width="wrap_content"
+  android:background="@drawable/yellowbtn" 
+  android:drawableTop="@drawable/newcases"
+   android:text="    New Case   " 
+   android:clickable="true"></Button>
+   
+<Button android:id="@+id/Button02"  
+android:layout_height="wrap_content"
+ android:layout_width="wrap_content"
+  android:background="@drawable/yellowbtn"
+   android:drawableTop="@drawable/searchs" 
+   android:text="    Old case   "
+    android:clickable="true" 
+    android:cursorVisible="true"></Button>
+    
+<Button android:id="@+id/Button03" 
+ android:layout_height="wrap_content" 
+ android:layout_width="fill_parent"
+  android:background="@drawable/yellowbtn" 
+  android:drawableTop="@drawable/close"
+   android:text="Exit"></Button>
+   
+	</LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

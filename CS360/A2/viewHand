@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "View byHand"
+cat byHand | less
+
